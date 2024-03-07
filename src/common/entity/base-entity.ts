@@ -3,7 +3,7 @@ import { CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, } f
 @Entity()
 export class BaseEntity {
   @PrimaryGeneratedColumn('increment')
-  id: number;
+  id: string;
 
   @CreateDateColumn({type: 'timestamp',})
   createdAt: Date;

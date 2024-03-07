@@ -1,5 +1,5 @@
 import { UserRepository } from '../repositories';
-import { BadRequestException,UnauthorizedException ,NotFoundException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import * as argon2 from 'argon2';
 import { User } from '../entities';
 import { CreateUserDto } from '../dto';

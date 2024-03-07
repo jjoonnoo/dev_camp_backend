@@ -1,7 +1,7 @@
-import { IsString, IsEmail, IsNumber } from 'class-validator';
+import { IsString, IsEmail } from 'class-validator';
 export class SignupResDto  {
-    @IsNumber()
-    id: number;
+    @IsString()
+    id: string;
     @IsString()
     name: string;
     @IsEmail()
