@@ -6,15 +6,13 @@ import { CreateUserDto } from '../dto';
 
 @Injectable()
 export class UserService {
-    constructor(
-        private readonly userRepository : UserRepository,
-    ){}
-    async createUser(dto: CreateUserDto): Promise<User>{
+    constructor(private readonly userRepository: UserRepository) {}
+    async createUser(dto: CreateUserDto): Promise<User> {
         const user = await this.userRepository.findOneByEmail(dto.email);
-        if (user){
+        if (user) {
             throw new BadRequestException('this email already exists');
         }
-        const hashedPassword = await argon2.hash(dto.password)
-        return this.userRepository.createUser(dto, hashedPassword)
+        const hashedPassword = await argon2.hash(dto.password);
+        return this.userRepository.createUser(dto, hashedPassword);
     }
 }

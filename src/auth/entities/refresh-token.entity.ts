@@ -4,18 +4,18 @@ import { BaseEntity } from '../../common/entity';
 
 @Entity()
 export class RefreshToken extends BaseEntity {
-  @ManyToOne(() => User)
-  user: Relation<User>;
+    @ManyToOne(() => User)
+    user: Relation<User>;
 
-  @Column()
-  jti: string;
+    @Column()
+    jti: string;
 
-  @Column()
-  token: string;
+    @Column()
+    token: string;
 
-  @Column({ type: 'timestamp' })
-  expiresAt: Date;
+    @Column({ type: 'timestamp' })
+    expiresAt: Date;
 
-  @Column({ default: false })
-  isRevoked: boolean;
+    @Column({ default: false })
+    isRevoked: boolean;
 }

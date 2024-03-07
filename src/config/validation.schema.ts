@@ -1,10 +1,10 @@
-import {IsString,IsNumber} from 'class-validator'
+import { IsString, IsNumber } from 'class-validator';
 
 export class ConfigValidatoinDto {
     @IsNumber()
     PORT: number;
     @IsString()
-    JWT_SECRET:string;
+    JWT_SECRET: string;
     @IsString()
     ACCESS_TOKEN_EXPIRY: string;
     @IsString()

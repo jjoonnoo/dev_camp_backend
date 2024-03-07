@@ -6,5 +6,5 @@ export type LoginResDto = {
         name: string;
         email: string;
         phone: string;
-    }
-}
+    };
+};

@@ -1,4 +1,4 @@
-import { IsString, IsNumber, } from 'class-validator';
+import { IsString, IsNumber } from 'class-validator';
 export class TokenPayloadDto {
     @IsString()
     sub: string;
@@ -6,4 +6,4 @@ export class TokenPayloadDto {
     iat: number;
     @IsString()
     jti: string;
-};
+}
