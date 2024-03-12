@@ -26,6 +26,6 @@ export class RefreshTokenRepository extends Repository<RefreshToken> {
         refreshToken.token = token;
         refreshToken.expiresAt = expiresAt;
         refreshToken.isRevoked = false;
-        return this.save(refreshToken);
+        return this.repo.save(refreshToken);
     }
 }

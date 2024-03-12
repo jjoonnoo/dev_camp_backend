@@ -1,5 +1,6 @@
 import { Column, Entity } from 'typeorm';
 import { BaseEntity } from '../../common/entity';
+export type UserRole = 'admin' | 'user';
 @Entity()
 export class User extends BaseEntity {
     @Column({ type: 'varchar' })
@@ -13,4 +14,7 @@ export class User extends BaseEntity {
 
     @Column({ type: 'varchar' })
     phone: string;
+
+    @Column({ type: 'varchar' })
+    role: string;
 }

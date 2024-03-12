@@ -26,7 +26,7 @@ export class AccessTokenRepository extends Repository<AccessToken> {
         accessToken.token = token;
         accessToken.expiresAt = expiresAt;
         accessToken.isRevoked = false;
-        return this.save(accessToken);
+        return this.repo.save(accessToken);
     }
 
     async findOneByJti(jti: string): Promise<AccessToken> {
