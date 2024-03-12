@@ -8,4 +8,6 @@ export class SignupResDto {
     email: string;
     @IsString()
     phone: string;
+    @IsString()
+    role: string;
 }
