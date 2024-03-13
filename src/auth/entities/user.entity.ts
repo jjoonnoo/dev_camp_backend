@@ -17,4 +17,7 @@ export class User extends BaseEntity {
 
     @Column({ type: 'varchar' })
     role: string;
+
+    @Column({ type: 'int', default: 0 })
+    point: number;
 }
