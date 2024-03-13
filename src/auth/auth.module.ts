@@ -13,6 +13,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { HttpModule } from '@nestjs/axios';
 import { PassportModule } from '@nestjs/passport';
 import { APP_PIPE } from '@nestjs/core';
+import { JwtStrategy } from './securities/strategies';
+import { JwtAuthGuard } from './securities/guards';
 @Module({
     imports: [
         HttpModule,
@@ -37,6 +39,8 @@ import { APP_PIPE } from '@nestjs/core';
         UserRepository,
         AccessTokenRepository,
         RefreshTokenRepository,
+        JwtStrategy,
+        JwtAuthGuard,
         {
             provide: APP_PIPE,
             useClass: ValidationPipe,

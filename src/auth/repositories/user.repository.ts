@@ -26,6 +26,7 @@ export class UserRepository extends Repository<User> {
         user.name = dto.name;
         user.password = hashedPassword;
         user.phone = dto.phone;
+        user.role = dto.role;
         return this.repository.save(user);
     }
 }
