@@ -22,4 +22,11 @@ export class IssueCouponRepository extends Repository<IssuedCoupon> {
         issuedCoupon.isUsed = false;
         return this.repository.save(issuedCoupon);
     }
+    async getCoupons(user: User) {
+        const issuedCoupons = await this.repository.find({
+            where: { user: user },
+            relations: ['coupon'],
+        });
+        return issuedCoupons.map((issueCoupon) => issueCoupon.coupon);
+    }
 }
