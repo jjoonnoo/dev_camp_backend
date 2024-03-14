@@ -3,7 +3,7 @@ import { EntityManager, Repository } from 'typeorm';
 import { Coupon } from '../entities';
 import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
 import { CreateCouponDto } from '../dto';
-
+import { User } from '../../auth/entities';
 @Injectable()
 export class CouponRepository extends Repository<Coupon> {
     constructor(

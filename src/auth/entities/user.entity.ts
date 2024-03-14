@@ -1,5 +1,6 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToOne, OneToMany, Relation } from 'typeorm';
 import { BaseEntity } from '../../common/entity';
+import { Point, Order } from '../../payment/entities';
 export type UserRole = 'admin' | 'user';
 @Entity()
 export class User extends BaseEntity {
@@ -18,6 +19,8 @@ export class User extends BaseEntity {
     @Column({ type: 'varchar' })
     role: string;
 
-    @Column({ type: 'int', default: 0 })
-    point: number;
+    @OneToOne(() => Point, (point) => point.user)
+    point: Relation<Point>;
+    @OneToMany(() => Order, (order) => order.user)
+    order: Relation<Order[]>;
 }

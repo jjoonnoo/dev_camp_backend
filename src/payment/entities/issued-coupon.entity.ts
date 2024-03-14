@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { BaseEntity } from '../../common/entity';
 import { Coupon } from './coupon.entity';
+import { Order } from './order.entity';
 import { User } from '../../auth/entities';
 @Entity()
 export class IssuedCoupon extends BaseEntity {
@@ -23,4 +24,8 @@ export class IssuedCoupon extends BaseEntity {
     isUsed: boolean;
     @Column({ type: 'timestamp' })
     usedAt: Date;
+    @OneToOne(() => Order, (order) => order.usedIssuedCoupon, {
+        nullable: true,
+    })
+    usedOrder: Relation<Order>;
 }

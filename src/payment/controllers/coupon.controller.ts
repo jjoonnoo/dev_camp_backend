@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
+import { Get, Body, Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { CouponService } from '../services';
 import { CreateCouponDto } from '../dto';
 import { Coupon } from '../entities';
@@ -16,5 +16,11 @@ export class CouponController {
     @UseGuards(JwtAuthGuard)
     async issueCoupon(@Req() req, @Body() coupon: Coupon) {
         return this.couponService.issueCoupon(req.user, coupon);
+    }
+    @Get('get-coupons')
+    @UseGuards(JwtAuthGuard)
+    async getCoupons(@Req() req) {
+        const user = req.user;
+        return this.couponService.getCoupons(user);
     }
 }

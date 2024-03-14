@@ -23,4 +23,7 @@ export class CouponService {
     async issueCoupon(user: User, coupon: Coupon): Promise<IssuedCoupon> {
         return await this.issueCouponRepository.issueCouponToUser(user, coupon);
     }
+    async getCoupons(user: User) {
+        return await this.issueCouponRepository.getCoupons(user);
+    }
 }
